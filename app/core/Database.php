@@ -20,33 +20,32 @@ class Database
 
         $result = $this->koneksi->query($query);
 
-        return $result->fetch_assoc();
-    }
-
-    public function ambil_semua_data($query)
-    {
-        $this->koneksi();
-
-        $result = $this->koneksi->query($query);
-
-        $rows = [];
-
-        while ($row = $result->fetch_assoc()) {
-            $rows[] = $row;
-        }
-
-        if($rows == null) {
+        if ($result->num_rows < 1) {
             return null;
         }
 
-        return $rows;
+        if ($result->num_rows > 1) {
+            $rows = [];
+
+            while ($row = $result->fetch_assoc()) {
+                $rows[] = $row;
+            }
+
+            return $rows;
+        }
+
+        return $result->fetch_assoc();
     }
 
     public function modifikasi($query)
     {
         $this->koneksi();
 
-        $this->koneksi->query($query);
+        $result = $this->koneksi->query($query);
+
+        if($this->koneksi->affected_rows === 0) {
+            return false;
+        }
 
         return true;
     }

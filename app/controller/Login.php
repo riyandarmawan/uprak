@@ -7,7 +7,13 @@ class Login extends Controller
 {
     public function index()
     {
+        $data = [
+            'title' => 'Login'
+        ];
+
+        $this->view('template/header.php', $data);
         $this->view('auth/login.php');
+        $this->view('template/footer.php');
     }
 
     public function auth()
@@ -30,6 +36,7 @@ class Login extends Controller
 
         if ($admin !== null) {
             if ($admin['password'] == $password) {
+                $_SESSION['login'] = $admin['username'];
                 header('Location: /');
                 die;
             } else {
