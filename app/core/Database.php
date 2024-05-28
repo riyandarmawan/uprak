@@ -20,6 +20,15 @@ class Database
 
         $result = $this->koneksi->query($query);
 
+        return $result->fetch_assoc();
+    }
+
+    public function ambil_semua_data($query)
+    {
+        $this->koneksi();
+
+        $result = $this->koneksi->query($query);
+
         $rows = [];
 
         while ($row = $result->fetch_assoc()) {

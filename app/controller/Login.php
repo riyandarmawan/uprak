@@ -23,9 +23,13 @@ class Login extends Controller
             if($admin['password'] == $password) {
 
             }
+            Flasher::setFlashMessage('Password tidak sesuai');
+            header('Location: /login');
+            die;
         } else {
             Flasher::setFlashMessage('Username tidak terdaftar');
-            
+            header('Location: /login');
+            die;
         }
     }
 }

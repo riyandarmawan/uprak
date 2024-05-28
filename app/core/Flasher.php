@@ -7,7 +7,7 @@ class Flasher
     }
 
     public static function getFlashMessage() {
-        if($_SESSION['flash']) {
+        if(isset($_SESSION['flash'])) {
             echo $_SESSION['flash'];
             unset($_SESSION['flash']);
         }
