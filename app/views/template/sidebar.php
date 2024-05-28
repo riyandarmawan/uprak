@@ -3,7 +3,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        SPP APPS
     </a>
 
     <!-- Divider -->
@@ -13,6 +13,11 @@
     <li class="nav-item">
         <a class="nav-link" href="/">
             <span>Dashboard</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/">
+            <span>Ubah Password</span></a>
     </li>
 
     <!-- Divider -->
