@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-white">
 
 <head>
     <meta charset="UTF-8">
@@ -8,4 +8,4 @@
     <link rel="stylesheet" href="/public/css/output.css">
 </head>
 
-<body>
+<body class="h-full">

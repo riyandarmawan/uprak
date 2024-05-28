@@ -10,8 +10,8 @@ class NotFound extends Controller
             'title' => 'Halaman Tidak Ditemukan'
         ];
 
-        $this->view('/template/header.php', $data);
-        $this->view('/page/not-found.php');
-        $this->view('/template/footer.php');
+        $this->view('/template/header', $data);
+        $this->view('/page/not-found');
+        $this->view('/template/footer');
     }
 }

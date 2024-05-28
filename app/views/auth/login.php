@@ -1,27 +1,36 @@
-<section class="bg-gray-50 dark:bg-gray-900">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                    Masuk
-                </h1>
-                <form class="space-y-4 md:space-y-6" action="/login/auth" method="post">
-                    <div>
-                        <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Username" required="" value="<?= isset($_SESSION['old']['username']) ? Flasher::getOld('username') : '' ?>" class="outline-none border text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:text-white <?= isset($_SESSION['flash']['username']) ? 'invalid' : 'valid' ?>">
-                        <p class="text-red-500 ml-2 mt-2 text-sm"><?= Flasher::getFlashMessage('username') ?></p>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" name="password" id="password" placeholder="password" required="" class="outline-none border text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:text-white <?= isset($_SESSION['flash']['password']) ? 'invalid' : 'valid' ?>">
-                        <p class="text-red-500 ml-2 mt-2 text-sm"><?= Flasher::getFlashMessage('password') ?></p>
-                    </div>
-                    <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Masuk</button>
-                    <p class="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
-                        Belum memiliki akun? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Daftar</a>
-                    </p>
-                </form>
-            </div>
-        </div>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Masuk ke Akummu</h2>
     </div>
-</section>
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6" action="/login/auth" method="POST">
+            <div>
+                <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                <div class="mt-2">
+                    <input id="username" name="username" type="text" autocomplete="username" required value="<?= Flasher::getOld('username') ?>" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 <?= isset($_SESSION['flash']['username']) ? 'invalid' : 'valid' ?>">
+                    <p class="text-red-500 ml-2 mt-2 text-sm"><?= Flasher::getFlashMessage('username') ?></p>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between">
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                </div>
+                <div class="mt-2">
+                    <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 <?= isset($_SESSION['flash']['password']) ? 'invalid' : 'valid' ?>">
+                    <p class="text-red-500 ml-2 mt-2 text-sm"><?= Flasher::getFlashMessage('password') ?></p>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Masuk</button>
+            </div>
+        </form>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+            Tidak mempunyai akun?
+            <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Daftar sekarang</a>
+        </p>
+    </div>
+</div>

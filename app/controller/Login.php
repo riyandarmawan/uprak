@@ -11,9 +11,9 @@ class Login extends Controller
             'title' => 'Login'
         ];
 
-        $this->view('template/header.php', $data);
-        $this->view('auth/login.php');
-        $this->view('template/footer.php');
+        $this->view('template/header', $data);
+        $this->view('auth/login');
+        $this->view('template/footer');
     }
 
     public function auth()
