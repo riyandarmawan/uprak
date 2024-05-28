@@ -6,6 +6,6 @@ class NotFound extends Controller
 {
     public function index()
     {
-        $this->view('/page/index.php');
+        $this->view('/page/notFound.php');
     }
 }
