@@ -19,8 +19,10 @@ class App
         
         require_once 'app/controller/'   . $this->controller . '.php';
         $this->controller = new $this->controller();
-        
+
         if(isset($url[2])) {
+            $url[2] = lcfirst(str_replace('-', '', ucwords($url['2'], '-')));
+
             if(method_exists($this->controller, $url[2])) {
                 $this->method = $url[2];
                 unset($url[2]);

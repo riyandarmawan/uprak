@@ -1,6 +1,8 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800">Jurusan</h1>
 
+<a href="/dashboard/tambah-jurusan" class="btn btn-primary mb-4">Tambah Jurusan</a>
+
 <table class="table">
     <thead>
         <tr>
