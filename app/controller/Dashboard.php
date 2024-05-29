@@ -21,7 +21,8 @@ class Dashboard extends Controller
         $this->view('template/dashboard/footer');
     }
 
-    public function spp() {
+    public function spp()
+    {
         $database = new Database();
 
         $query = "SELECT * FROM spp";
@@ -38,14 +39,15 @@ class Dashboard extends Controller
         $this->view('template/dashboard/footer');
     }
 
-    public function tambahSpp() {
+    public function tambahSpp()
+    {
         $database = new Database();
-        
-        if(isset($_POST['submit'])) {
+
+        if (isset($_POST['submit'])) {
             $tahun = $_POST['tahun'];
             $nominal = $_POST['nominal'];
 
-            if(empty($tahun) || empty($nominal)) {
+            if (empty($tahun) || empty($nominal)) {
                 Flasher::setFlashMessage('tahun', 'Tahun wajib diisi');
                 Flasher::setFlashMessage('nominal', 'Nominal wajib diisi');
                 header('Location: /dashboard/tambah-spp');
@@ -106,7 +108,8 @@ class Dashboard extends Controller
         $this->view('template/dashboard/footer');
     }
 
-    public function hapusSpp($id) {
+    public function hapusSpp($id)
+    {
         $database = new Database();
 
         $query = "DELETE FROM spp WHERE id = $id";
@@ -117,7 +120,8 @@ class Dashboard extends Controller
         die;
     }
 
-    public function jurusan() {
+    public function jurusan()
+    {
         $database = new Database();
 
         $query = "SELECT * FROM jurusan";
@@ -215,7 +219,8 @@ class Dashboard extends Controller
         die;
     }
 
-    public function kelas() {
+    public function kelas()
+    {
         $database = new Database();
 
         $query = "SELECT kelas.*, jurusan.deskripsi FROM kelas LEFT JOIN jurusan ON jurusan.id = kelas.jurusan_id";
@@ -257,7 +262,7 @@ class Dashboard extends Controller
         }
 
         $query = "SELECT * FROM jurusan";
-        
+
         $jurusan = $database->ambil_data($query);
 
         $data = [
@@ -327,12 +332,55 @@ class Dashboard extends Controller
 
     public function ubahPassword()
     {
+        $database = new Database();
+
+        if (isset($_POST['submit'])) {
+            $passwordLama = $_POST['passwordLama'];
+            $passwordBaru = $_POST['passwordBaru'];
+            $konfirmasiPasswordBaru = $_POST['konfirmasiPasswordBaru'];
+
+            if (empty($passwordLama) || empty($passwordBaru) || empty($konfirmasiPasswordBaru)) {
+                Flasher::setFlashMessage('passwordLama', 'Password lama wajib diisi');
+                Flasher::setFlashMessage('passwordBaru', 'Password baru wajib diisi');
+                Flasher::setFlashMessage('konfirmasiPasswordBaru', 'Konfirmasi password lama wajib diisi');
+                header('Location: /dashboard/ubah-password');
+                die;
+            }
+
+            $query = "SELECT * FROM admin WHERE username = '" . $_SESSION['login'] . "'";
+
+            $admin = $database->ambil_data($query);
+
+            if($admin['password'] != $passwordLama) {
+                Flasher::setFlashMessage('passwordLama', 'Password lama tidak sesuai');
+                header('Location: /dashboard/ubah-password');
+                die;
+            }
+
+            if($passwordBaru != $konfirmasiPasswordBaru) {
+                Flasher::setFlashMessage('passwordBaru', 'Password baru tidak sesuai dengan konfirmasi password');
+                Flasher::setFlashMessage('konfirmasiPasswordBaru', 'Konfirmasi password tidak sesuai dengan password baru');
+                header('Location: /dashboard/ubah-password');
+                die;
+            }
+
+            $query = "UPDATE admin SET password = '$passwordBaru' WHERE id = " . $admin['id'];
+
+            $database->modifikasi($query);
+
+            unset($_SESSION['login']);
+
+            Flasher::setFlashMessage('ubahPasswordBerhasil', 'Password berhasil diubah');
+            header('Location: /login');
+            die;
+        }
+
         $data = [
             'title' => 'Ubah password'
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/index');
+        $this->view('dashboard/ubah-password');
         $this->view('template/dashboard/footer');
     }
 }
