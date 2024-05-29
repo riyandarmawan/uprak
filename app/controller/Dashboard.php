@@ -109,7 +109,12 @@ class Dashboard extends Controller
     public function hapusSpp($id) {
         $database = new Database();
 
-        $query = "DELETE ";
+        $query = "DELETE FROM spp WHERE id = $id";
+
+        $database->modifikasi($query);
+
+        header('Location: /dashboard/spp');
+        die;
     }
 
     public function jurusan() {
@@ -196,6 +201,18 @@ class Dashboard extends Controller
         $this->view('template/dashboard/header', $data);
         $this->view('dashboard/ubah-jurusan', $data);
         $this->view('template/dashboard/footer');
+    }
+
+    public function hapusJurusan($id)
+    {
+        $database = new Database();
+
+        $query = "DELETE FROM jurusan WHERE id = $id";
+
+        $database->modifikasi($query);
+
+        header('Location: /dashboard/jurusan');
+        die;
     }
 
     public function kelas() {
@@ -294,6 +311,18 @@ class Dashboard extends Controller
         $this->view('template/dashboard/header', $data);
         $this->view('dashboard/ubah-kelas', $data);
         $this->view('template/dashboard/footer');
+    }
+
+    public function hapusKelas($id)
+    {
+        $database = new Database();
+
+        $query = "DELETE FROM kelas WHERE id = $id";
+
+        $database->modifikasi($query);
+
+        header('Location: /dashboard/kelas');
+        die;
     }
 
     public function ubahPassword()
