@@ -11,22 +11,37 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="/">
+        <a class="nav-link" href="/dashboard">
             <span>Dashboard</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/">
-            <span>Ubah Password</span></a>
+        <a class="nav-link" href="/dashboard/spp">
+            <span>SPP</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard/jurusan">
+            <span>Jurusan</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard/kelas">
+            <span>Kelas</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading
+    <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
-    </div> -->
+        Akun
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard/ubah-password">
+            <span>Ubah Password</span></a>
+    </li>
 
 </ul>
 <!-- End of Sidebar -->

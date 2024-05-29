@@ -37,7 +37,7 @@ class Login extends Controller
         if ($admin !== null) {
             if ($admin['password'] == $password) {
                 $_SESSION['login'] = $admin['username'];
-                header('Location: /');
+                header('Location: /dashboard');
                 die;
             } else {
                 Flasher::setOld('username', $username);
