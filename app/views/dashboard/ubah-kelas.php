@@ -18,8 +18,11 @@
                     <label for="tingkat" class="block text-sm font-medium leading-6 text-gray-900">Tingkat</label>
                 </div>
                 <div class="mt-2">
-                    <input id="tingkat" name="tingkat" type="number" required autocomplete="tingkat" placeholder="Ex. 10" min="10" max="12" value="<?= $data['kelas']['tingkat'] ?>" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 <?= isset($_SESSION['flash']['tingkat']) ? 'invalid' : 'valid' ?>">
-                    <p class="text-red-500 ml-2 mt-2 text-sm"><?= Flasher::getFlashMessage('deskripsi') ?></p>
+                    <select id="tingkat" name="tingkat" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 valid">
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
                 </div>
             </div>
 

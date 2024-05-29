@@ -272,7 +272,6 @@ class Dashboard extends Controller
 
             if (empty($kodeKelas) || empty($tingkat)) {
                 Flasher::setFlashMessage('kodeKelas', 'Kode kelas wajib diisi');
-                Flasher::setFlashMessage('tingkat', 'Tingkat wajib diisi');
                 header('Location: /dashboard/tambah-kelas');
                 die;
             }
@@ -314,7 +313,6 @@ class Dashboard extends Controller
 
             if (empty($kodeKelas) || empty($tingkat)) {
                 Flasher::setFlashMessage('kodeKelas', 'Kode kelas wajib diisi');
-                Flasher::setFlashMessage('tingkat', 'Tingkat wajib diisi');
                 header('Location: /dashboard/ubah-kelas');
                 die;
             }
