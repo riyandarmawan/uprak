@@ -22,7 +22,7 @@
                 <td><?= $jurusan['kode_jurusan'] ?></td>
                 <td><?= $jurusan['deskripsi'] ?></td>
                 <td>
-                    <a href="#" class="btn btn-warning">Ubah</a>
+                    <a href="/dashboard/ubah-jurusan/<?= $jurusan['id'] ?>" class="btn btn-warning">Ubah</a>
                     <a href="#" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>

@@ -30,6 +30,7 @@ class App
         }
 
         if(!empty($url)) {
+            unset($url[0]);
             $this->params = array_values($url);
         }
 

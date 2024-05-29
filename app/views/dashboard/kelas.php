@@ -24,7 +24,7 @@
                 <td><?= $kelas['tingkat'] ?></td>
                 <td><?= $kelas['deskripsi'] ?></td>
                 <td>
-                    <a href="#" class="btn btn-warning">Ubah</a>
+                    <a href="/dashboard/ubah-kelas/<?= $kelas['id'] ?>" class="btn btn-warning">Ubah</a>
                     <a href="#" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>

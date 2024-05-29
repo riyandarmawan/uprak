@@ -69,6 +69,43 @@ class Dashboard extends Controller
         $this->view('template/dashboard/footer');
     }
 
+    public function ubahSpp($id)
+    {
+        $database = new Database();
+
+        if (isset($_POST['submit'])) {
+            $tahun = $_POST['tahun'];
+            $nominal = $_POST['nominal'];
+
+            if (empty($tahun) || empty($nominal)) {
+                Flasher::setFlashMessage('tahun', 'Tahun wajib diisi');
+                Flasher::setFlashMessage('nominal', 'Nominal wajib diisi');
+                header('Location: /dashboard/ubah-spp');
+                die;
+            }
+
+            $query = "UPDATE spp SET tahun = '$tahun', nominal = '$nominal' WHERE id = $id";
+
+            $database->modifikasi($query);
+
+            header('Location: /dashboard/spp');
+            die;
+        }
+
+        $query = "SELECT * FROM spp WHERE id = $id";
+
+        $spp = $database->ambil_data($query);
+
+        $data = [
+            'title' => 'Ubah SPP',
+            'spp' => $spp
+        ];
+
+        $this->view('template/dashboard/header', $data);
+        $this->view('dashboard/ubah-spp', $data);
+        $this->view('template/dashboard/footer');
+    }
+
     public function jurusan() {
         $database = new Database();
 
@@ -118,6 +155,43 @@ class Dashboard extends Controller
         $this->view('template/dashboard/footer');
     }
 
+    public function ubahJurusan($id)
+    {
+        $database = new Database();
+
+        if (isset($_POST['submit'])) {
+            $kodeJurusan = $_POST['kodeJurusan'];
+            $deskripsi = $_POST['deskripsi'];
+
+            if (empty($kodeJurusan) || empty($deskripsi)) {
+                Flasher::setFlashMessage('kodeJurusan', 'Kode jurusan wajib diisi');
+                Flasher::setFlashMessage('deskripsi', 'deskripsi wajib diisi');
+                header('Location: /dashboard/ubah-jurusan');
+                die;
+            }
+
+            $query = "UPDATE jurusan SET kode_jurusan = '$kodeJurusan', deskripsi = '$deskripsi' WHERE id = $id";
+
+            $database->modifikasi($query);
+
+            header('Location: /dashboard/jurusan');
+            die;
+        }
+
+        $query = "SELECT * FROM jurusan WHERE id = $id";
+
+        $jurusan = $database->ambil_data($query);
+
+        $data = [
+            'title' => 'Ubah SPP',
+            'jurusan' => $jurusan
+        ];
+
+        $this->view('template/dashboard/header', $data);
+        $this->view('dashboard/ubah-jurusan', $data);
+        $this->view('template/dashboard/footer');
+    }
+
     public function kelas() {
         $database = new Database();
 
@@ -142,7 +216,7 @@ class Dashboard extends Controller
         if (isset($_POST['submit'])) {
             $kodeKelas = $_POST['kodeKelas'];
             $tingkat = $_POST['tingkat'];
-            $jurursanId = $_POST['jurusanId'];
+            $jurusanId = $_POST['jurusanId'];
 
             if (empty($kodeKelas) || empty($tingkat)) {
                 Flasher::setFlashMessage('kodeKelas', 'Kode kelas wajib diisi');
@@ -151,7 +225,7 @@ class Dashboard extends Controller
                 die;
             }
 
-            $query = "INSERT INTO kelas(kode_kelas, tingkat,jurusan_id) VALUES('$kodeKelas', '$tingkat', '$jurursanId')";
+            $query = "INSERT INTO kelas(kode_kelas, tingkat,jurusan_id) VALUES('$kodeKelas', '$tingkat', '$jurusanId')";
 
             $database->modifikasi($query);
 
@@ -170,6 +244,49 @@ class Dashboard extends Controller
 
         $this->view('template/dashboard/header', $data);
         $this->view('dashboard/tambah-kelas', $data);
+        $this->view('template/dashboard/footer');
+    }
+
+    public function ubahKelas($id)
+    {
+        $database = new Database();
+
+        if (isset($_POST['submit'])) {
+            $kodeKelas = $_POST['kodeKelas'];
+            $tingkat = $_POST['tingkat'];
+            $jurusanId = $_POST['jurusanId'];
+
+            if (empty($kodeKelas) || empty($tingkat)) {
+                Flasher::setFlashMessage('kodeKelas', 'Kode kelas wajib diisi');
+                Flasher::setFlashMessage('tingkat', 'Tingkat wajib diisi');
+                header('Location: /dashboard/ubah-kelas');
+                die;
+            }
+
+            $query = "UPDATE kelas SET kode_kelas = '$kodeKelas', tingkat = '$tingkat', jurusan_id = '$jurusanId' WHERE id = $id";
+
+            $database->modifikasi($query);
+
+            header('Location: /dashboard/kelas');
+            die;
+        }
+
+        $query = "SELECT * FROM jurusan";
+
+        $jurusan = $database->ambil_data($query);
+
+        $query = "SELECT * FROM kelas WHERE id = '$id'";
+
+        $kelas = $database->ambil_data($query);
+
+        $data = [
+            'title' => 'Tambah Kelas',
+            'jurusan' => $jurusan,
+            'kelas' => $kelas
+        ];
+
+        $this->view('template/dashboard/header', $data);
+        $this->view('dashboard/ubah-kelas', $data);
         $this->view('template/dashboard/footer');
     }
 
