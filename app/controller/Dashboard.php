@@ -35,7 +35,7 @@ class Dashboard extends Controller
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/spp', $data);
+        $this->view('dashboard/spp/index', $data);
         $this->view('template/dashboard/footer');
     }
 
@@ -71,7 +71,7 @@ class Dashboard extends Controller
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/tambah-spp');
+        $this->view('dashboard/spp/tambah');
         $this->view('template/dashboard/footer');
     }
 
@@ -112,7 +112,7 @@ class Dashboard extends Controller
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/ubah-spp', $data);
+        $this->view('dashboard/spp/ubah', $data);
         $this->view('template/dashboard/footer');
     }
 
@@ -146,7 +146,7 @@ class Dashboard extends Controller
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/jurusan', $data);
+        $this->view('dashboard/jurusan/index', $data);
         $this->view('template/dashboard/footer');
     }
 
@@ -182,7 +182,7 @@ class Dashboard extends Controller
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/tambah-jurusan');
+        $this->view('dashboard/jurusan/tambah');
         $this->view('template/dashboard/footer');
     }
 
@@ -218,12 +218,12 @@ class Dashboard extends Controller
         $jurusan = $database->ambil_data($query);
 
         $data = [
-            'title' => 'Ubah SPP',
+            'title' => 'Ubah Jurusan',
             'jurusan' => $jurusan
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/ubah-jurusan', $data);
+        $this->view('dashboard/jurusan/ubah', $data);
         $this->view('template/dashboard/footer');
     }
 
@@ -257,7 +257,7 @@ class Dashboard extends Controller
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/kelas', $data);
+        $this->view('dashboard/kelas/index', $data);
         $this->view('template/dashboard/footer');
     }
 
@@ -293,12 +293,12 @@ class Dashboard extends Controller
         $jurusan = $database->ambil_data($query);
 
         $data = [
-            'title' => 'Tambah Kelas',
+            'title' => 'Ubah Kelas',
             'jurusan' => $jurusan
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/tambah-kelas', $data);
+        $this->view('dashboard/kelas/tambah', $data);
         $this->view('template/dashboard/footer');
     }
 
@@ -344,7 +344,7 @@ class Dashboard extends Controller
         ];
 
         $this->view('template/dashboard/header', $data);
-        $this->view('dashboard/ubah-kelas', $data);
+        $this->view('dashboard/kelas/ubah', $data);
         $this->view('template/dashboard/footer');
     }
 
