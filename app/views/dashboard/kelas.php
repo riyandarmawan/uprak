@@ -3,6 +3,8 @@
 
 <a href="/dashboard/tambah-kelas" class="btn btn-primary mb-4">Tambah Kelas</a>
 
+<?= isset($_SESSION['flash']['kelas']) ? Flasher::getFlashAlert("kelas") : '' ?>
+
 <table class="table">
     <thead>
         <tr>

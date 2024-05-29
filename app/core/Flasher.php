@@ -15,6 +15,27 @@ class Flasher
         }
     }
 
+    public static function setFlashAlert($name, $message, bool $success)
+    {
+        $_SESSION['flash'][$name] = ['message' => $message, 'success' => $success];
+    }
+
+    public static function getFlashAlert($name)
+    {
+        if (isset($_SESSION['flash'][$name])) {
+            $success = 'success';
+
+            if($_SESSION['flash'][$name]['success'] == false) {
+                $success = 'danger';
+            }
+
+            echo    "<div class='alert alert-$success role='alert'>
+                        " . $_SESSION['flash'][$name]['message'] . "
+                    </div>";
+            unset($_SESSION['flash'][$name]);
+        }
+    }
+
     public static function setOld($name, $value)
     {
         $_SESSION['old'][$name] = $value;

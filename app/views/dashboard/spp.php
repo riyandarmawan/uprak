@@ -3,6 +3,8 @@
 
 <a href="/dashboard/tambah-spp" class="btn btn-primary mb-4">Tambah SPP</a>
 
+<?= isset($_SESSION['flash']['spp']) ? Flasher::getFlashAlert("spp") : '' ?>
+
 <table class="table">
     <thead>
         <tr>

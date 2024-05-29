@@ -56,8 +56,12 @@ class Dashboard extends Controller
 
             $query = "INSERT INTO spp(tahun, nominal) VALUES($tahun, $nominal)";
 
-            $database->modifikasi($query);
-
+            if($database->modifikasi($query)) {
+                Flasher::setFlashAlert('spp', 'SPP berhasil ditambah', true);
+            } else {
+                Flasher::setFlashAlert('spp', 'SPP gagal ditambah', false);
+            }
+            
             header('Location: /dashboard/spp');
             die;
         }
@@ -88,7 +92,11 @@ class Dashboard extends Controller
 
             $query = "UPDATE spp SET tahun = '$tahun', nominal = '$nominal' WHERE id = $id";
 
-            $database->modifikasi($query);
+            if ($database->modifikasi($query)) {
+                Flasher::setFlashAlert('spp', 'SPP berhasil diubah', true);
+            } else {
+                Flasher::setFlashAlert('spp', 'SPP gagal diubah', false);
+            }
 
             header('Location: /dashboard/spp');
             die;
@@ -114,7 +122,11 @@ class Dashboard extends Controller
 
         $query = "DELETE FROM spp WHERE id = $id";
 
-        $database->modifikasi($query);
+        if ($database->modifikasi($query)) {
+            Flasher::setFlashAlert('spp', 'SPP berhasil dihapus', true);
+        } else {
+            Flasher::setFlashAlert('spp', 'SPP gagal dihapus', false);
+        }
 
         header('Location: /dashboard/spp');
         die;
@@ -155,7 +167,11 @@ class Dashboard extends Controller
 
             $query = "INSERT INTO jurusan(kode_jurusan, deskripsi) VALUES('$kodeJurusan', '$deskripsi')";
 
-            $database->modifikasi($query);
+            if ($database->modifikasi($query)) {
+                Flasher::setFlashAlert('jurusan', 'Jurusan berhasil ditambah', true);
+            } else {
+                Flasher::setFlashAlert('jurusan', 'Jurusan gagal ditambah', false);
+            }
 
             header('Location: /dashboard/jurusan');
             die;
@@ -187,7 +203,11 @@ class Dashboard extends Controller
 
             $query = "UPDATE jurusan SET kode_jurusan = '$kodeJurusan', deskripsi = '$deskripsi' WHERE id = $id";
 
-            $database->modifikasi($query);
+            if ($database->modifikasi($query)) {
+                Flasher::setFlashAlert('jurusan', 'Jurusan berhasil diubah', true);
+            } else {
+                Flasher::setFlashAlert('jurusan', 'Jurusan gagal diubah', false);
+            }
 
             header('Location: /dashboard/jurusan');
             die;
@@ -213,7 +233,11 @@ class Dashboard extends Controller
 
         $query = "DELETE FROM jurusan WHERE id = $id";
 
-        $database->modifikasi($query);
+        if ($database->modifikasi($query)) {
+            Flasher::setFlashAlert('jurusan', 'Jurusan berhasil dihapus', true);
+        } else {
+            Flasher::setFlashAlert('jurusan', 'Jurusan gagal dihapus', false);
+        }
 
         header('Location: /dashboard/jurusan');
         die;
@@ -255,7 +279,11 @@ class Dashboard extends Controller
 
             $query = "INSERT INTO kelas(kode_kelas, tingkat,jurusan_id) VALUES('$kodeKelas', '$tingkat', '$jurusanId')";
 
-            $database->modifikasi($query);
+            if ($database->modifikasi($query)) {
+                Flasher::setFlashAlert('kelas', 'Kelas berhasil ditambah', true);
+            } else {
+                Flasher::setFlashAlert('kelas', 'Kelas gagal ditambah', false);
+            }
 
             header('Location: /dashboard/kelas');
             die;
@@ -293,7 +321,11 @@ class Dashboard extends Controller
 
             $query = "UPDATE kelas SET kode_kelas = '$kodeKelas', tingkat = '$tingkat', jurusan_id = '$jurusanId' WHERE id = $id";
 
-            $database->modifikasi($query);
+            if ($database->modifikasi($query)) {
+                Flasher::setFlashAlert('kelas', 'Kelas berhasil diubah', true);
+            } else {
+                Flasher::setFlashAlert('kelas', 'Kelas gagal diubah', false);
+            }
 
             header('Location: /dashboard/kelas');
             die;
@@ -324,7 +356,11 @@ class Dashboard extends Controller
 
         $query = "DELETE FROM kelas WHERE id = $id";
 
-        $database->modifikasi($query);
+        if ($database->modifikasi($query)) {
+            Flasher::setFlashAlert('kelas', 'Kelas berhasil dihapus', true);
+        } else {
+            Flasher::setFlashAlert('kelas', 'Kelas gagal dihapus', false);
+        }
 
         header('Location: /dashboard/kelas');
         die;
@@ -366,11 +402,14 @@ class Dashboard extends Controller
 
             $query = "UPDATE admin SET password = '$passwordBaru' WHERE id = " . $admin['id'];
 
-            $database->modifikasi($query);
+            if ($database->modifikasi($query)) {
+                Flasher::setFlashAlert('ubahPassword', 'Password berhasil diubah', true);
+            } else {
+                Flasher::setFlashAlert('ubahPassword', 'Password gagal diubah', false);
+            }
 
             unset($_SESSION['login']);
 
-            Flasher::setFlashMessage('ubahPasswordBerhasil', 'Password berhasil diubah');
             header('Location: /login');
             die;
         }
