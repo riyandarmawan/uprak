@@ -23,7 +23,7 @@
                 <td><?= $jurusan['deskripsi'] ?></td>
                 <td>
                     <a href="/dashboard/ubah-jurusan/<?= $jurusan['id'] ?>" class="btn btn-warning">Ubah</a>
-                    <a href="#" class="btn btn-danger">Hapus</a>
+                    <a href="/dashboard/hapus-jurusan/<?= $jurusan['id'] ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php

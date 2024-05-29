@@ -106,6 +106,12 @@ class Dashboard extends Controller
         $this->view('template/dashboard/footer');
     }
 
+    public function hapusSpp($id) {
+        $database = new Database();
+
+        $query = "DELETE ";
+    }
+
     public function jurusan() {
         $database = new Database();
 

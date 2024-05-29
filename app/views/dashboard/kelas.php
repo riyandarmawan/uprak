@@ -25,7 +25,7 @@
                 <td><?= $kelas['deskripsi'] ?></td>
                 <td>
                     <a href="/dashboard/ubah-kelas/<?= $kelas['id'] ?>" class="btn btn-warning">Ubah</a>
-                    <a href="#" class="btn btn-danger">Hapus</a>
+                    <a href="/dashboard/hapus-kelas/<?= $jurusan['id'] ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php
