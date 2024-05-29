@@ -23,7 +23,7 @@
                 <td><?= $spp['nominal'] ?></td>
                 <td>
                     <a href="/dashboard/ubah-spp/<?= $spp['id'] ?>" class="btn btn-warning">Ubah</a>
-                    <a href="/dashboard/hapus-spp/<?= $jurusan['id'] ?>" class="btn btn-danger">Hapus</a>
+                    <a href="/dashboard/hapus-spp/<?= $spp['id'] ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php
