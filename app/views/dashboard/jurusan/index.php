@@ -1,7 +1,7 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800">Jurusan</h1>
 
-<a href="/dashboard/tambah-jurusan" class="btn btn-primary mb-4">Tambah Jurusan</a>
+<a href="/spp/tambah" class="btn btn-primary mb-4">Tambah Jurusan</a>
 
 <?= isset($_SESSION['flash']['jurusan']) ? Flasher::getFlashAlert("jurusan") : '' ?>
 
@@ -24,8 +24,8 @@
                 <td><?= $jurusan['kode_jurusan'] ?></td>
                 <td><?= $jurusan['deskripsi'] ?></td>
                 <td>
-                    <a href="/dashboard/ubah-jurusan/<?= $jurusan['id'] ?>" class="btn btn-warning">Ubah</a>
-                    <a href="/dashboard/hapus-jurusan/<?= $jurusan['id'] ?>" class="btn btn-danger">Hapus</a>
+                    <a href="/spp/ubah/<?= $jurusan['id'] ?>" class="btn btn-warning">Ubah</a>
+                    <a href="/spp/hapus/<?= $jurusan['id'] ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php

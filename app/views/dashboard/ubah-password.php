@@ -4,7 +4,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" action="/dashboard/ubah-password" method="POST">
+        <form class="space-y-6" action="/auth/ubah-password" method="POST">
             <div>
                 <label for="passwordLama" class="block text-sm font-medium leading-6 text-gray-900">Password Lama</label>
                 <div class="mt-2">

@@ -11,22 +11,22 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard">
+        <a class="nav-link" href="/">
             <span>Dashboard</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard/spp">
+        <a class="nav-link" href="/spp">
             <span>SPP</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard/jurusan">
+        <a class="nav-link" href="/jurusan">
             <span>Jurusan</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard/kelas">
+        <a class="nav-link" href="/kelas">
             <span>Kelas</span></a>
     </li>
 
@@ -39,7 +39,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard/ubah-password">
+        <a class="nav-link" href="/auth/ubah-password">
             <span>Ubah Password</span></a>
     </li>
 

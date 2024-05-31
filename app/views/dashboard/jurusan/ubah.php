@@ -4,7 +4,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" action="/dashboard/ubah-jurusan/<?= $data['jurusan']['id'] ?>" method="POST">
+        <form class="space-y-6" action="/jurusan/ubah/<?= $data['jurusan']['id'] ?>" method="POST">
             <div>
                 <label for="kodeJurusan" class="block text-sm font-medium leading-6 text-gray-900">Kode Jurusan</label>
                 <div class="mt-2">

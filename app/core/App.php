@@ -9,39 +9,48 @@ class App
     public function __construct()
     {
         $url = $this->parseUrl();
+        $routes = $this->loadRoutes();
+        $routeKey = '/' . implode('/', array_slice($url, 1));
 
-        if(isset($url[1])) {
-            if(file_exists('app/controller/' . $url[1] . '.php')) {
-                $this->controller = $url[1];
-                unset($url[1]);
-            }
-        }
-        
-        require_once 'app/controller/'   . $this->controller . '.php';
-        $this->controller = new $this->controller();
+        foreach ($routes as $route => $routeInfo) {
+            $routePattern = preg_replace('/\{[a-zA-Z0-9]+\}/', '([a-zA-Z0-9]+)', $route);
 
-        if(isset($url[2])) {
-            $url[2] = lcfirst(str_replace('-', '', ucwords($url['2'], '-')));
-
-            if(method_exists($this->controller, $url[2])) {
-                $this->method = $url[2];
-                unset($url[2]);
+            if (preg_match('#^' . $routePattern . '$#', $routeKey, $matches)) {
+                $this->controller = $routeInfo[0];
+                $this->method = $routeInfo[1];
+                array_shift($matches);
+                $this->params = $matches;
+                break;
             }
         }
 
-        if(!empty($url)) {
-            unset($url[0]);
-            $this->params = array_values($url);
+        if (file_exists('app/controller/' . $this->controller . '.php')) {
+            require_once 'app/controller/'   . $this->controller . '.php';
+            $this->controller = new $this->controller();
+
+            if (!method_exists($this->controller, $this->method)) {
+                require_once 'app/controller/NotFound.php';
+                $this->controller = new NotFound();
+            }
+        } else {
+            require_once 'app/controller/NotFound.php';
+            $this->controller = new NotFound();
         }
 
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
-    public function parseUrl() {
+    private function parseUrl()
+    {
         $url = rtrim($_SERVER['REQUEST_URI'], '/');
         $url = filter_var($url, FILTER_SANITIZE_URL);
         $url = explode('/', $url);
 
         return $url;
+    }
+
+    private function loadRoutes()
+    {
+        return include 'Routes.php';
     }
 }

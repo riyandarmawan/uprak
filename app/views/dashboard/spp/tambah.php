@@ -4,7 +4,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" action="/dashboard/tambah-spp" method="POST">
+        <form class="space-y-6" action="/spp/tambah" method="POST">
             <div>
                 <label for="tahun" class="block text-sm font-medium leading-6 text-gray-900">Tahun</label>
                 <div class="mt-2">

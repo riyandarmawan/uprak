@@ -1,7 +1,7 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800">SPP</h1>
 
-<a href="/dashboard/tambah-spp" class="btn btn-primary mb-4">Tambah SPP</a>
+<a href="/spp/tambah" class="btn btn-primary mb-4">Tambah SPP</a>
 
 <?= isset($_SESSION['flash']['spp']) ? Flasher::getFlashAlert("spp") : '' ?>
 
@@ -24,8 +24,8 @@
                 <td><?= $spp['tahun'] ?></td>
                 <td><?= $spp['nominal'] ?></td>
                 <td>
-                    <a href="/dashboard/ubah-spp/<?= $spp['id'] ?>" class="btn btn-warning">Ubah</a>
-                    <a href="/dashboard/hapus-spp/<?= $spp['id'] ?>" class="btn btn-danger">Hapus</a>
+                    <a href="/spp/ubah/<?= $spp['id'] ?>" class="btn btn-warning">Ubah</a>
+                    <a href="/spp/hapus/<?= $spp['id'] ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php
