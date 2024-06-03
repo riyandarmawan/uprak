@@ -53,6 +53,11 @@ class Auth extends Controller
 
     public function ubahPassword()
     {
+        if (!isset($_SESSION['login'])) {
+            header('Location: /auth/login');
+            exit;
+        }
+
         $database = new Database();
 
         if (isset($_POST['submit'])) {

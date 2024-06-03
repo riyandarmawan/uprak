@@ -27,12 +27,9 @@ class App
         if (file_exists('app/controller/' . $this->controller . '.php')) {
             require_once 'app/controller/'   . $this->controller . '.php';
             $this->controller = new $this->controller();
+        }
 
-            if (!method_exists($this->controller, $this->method)) {
-                require_once 'app/controller/NotFound.php';
-                $this->controller = new NotFound();
-            }
-        } else {
+        if (!method_exists($this->controller, $this->method)) {
             require_once 'app/controller/NotFound.php';
             $this->controller = new NotFound();
         }
