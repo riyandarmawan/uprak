@@ -105,7 +105,7 @@ class Kelas extends Controller
         $kelas = $database->ambil_data($query);
 
         $data = [
-            'title' => 'Tambah Kelas',
+            'title' => 'Ubah Kelas',
             'jurusan' => $jurusan,
             'kelas' => $kelas
         ];
