@@ -43,5 +43,10 @@
             <span>Ubah Password</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="/auth/logout">
+            <span>Logout</span></a>
+    </li>
+
 </ul>
 <!-- End of Sidebar -->

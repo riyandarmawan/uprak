@@ -51,6 +51,18 @@ class Auth extends Controller
         $this->view('template/footer');
     }
 
+    public function logout() {
+        if (!isset($_SESSION['login'])) {
+            header('Location: /auth/login');
+            exit;
+        }
+
+        unset($_SESSION['login']);
+
+        header('Location: /auth/login');
+        die;
+    }
+
     public function ubahPassword()
     {
         if (!isset($_SESSION['login'])) {
@@ -100,7 +112,7 @@ class Auth extends Controller
 
             unset($_SESSION['login']);
 
-            header('Location: /login');
+            header('Location: /auth/login');
             die;
         }
 

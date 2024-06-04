@@ -24,5 +24,6 @@ return [
 
     // auth
     '/auth/login' => ['Auth',  'login'],
+    '/auth/logout' => ['Auth', 'logout'],
     '/auth/ubah-password' => ['Auth',  'ubahPassword'],
 ];
