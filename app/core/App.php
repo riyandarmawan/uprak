@@ -13,8 +13,7 @@ class App
         $routeKey = '/' . implode('/', array_slice($url, 1));
 
         foreach ($routes as $route => $routeInfo) {
-            // $routePattern = preg_replace('/\{[a-zA-Z0-9]+\}/', '([a-zA-Z0-9]+)', $route);
-            $routePattern = preg_replace('/\{[0-9]+\}/', '([0-9]+)', $route);
+            $routePattern = preg_replace('/\{[a-zA-Z0-9]+\}/', '([a-zA-Z0-9]+)', $route);
 
             if (preg_match('#^' . $routePattern . '$#', $routeKey, $matches)) {
                 $this->controller = $routeInfo[0];
