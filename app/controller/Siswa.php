@@ -78,7 +78,7 @@ class Siswa extends Controller {
 
         $query = "SELECT * FROM spp ORDER BY tahun DESC";
 
-        $spp = $database->ambil_data($query);
+        $spp = array_slice($database->ambil_data($query), 0, 3);
 
         $query = "SELECT * FROM kelas";
 
@@ -132,7 +132,7 @@ class Siswa extends Controller {
 
         $query = "SELECT * FROM spp ORDER BY tahun DESC";
 
-        $spp = $database->ambil_data($query);
+        $spp = array_slice($database->ambil_data($query), 0, 3);
 
         $query = "SELECT * FROM kelas";
 
