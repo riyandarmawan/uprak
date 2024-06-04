@@ -13,7 +13,7 @@ class Spp extends Controller {
     {
         $database = new Database();
 
-        $query = "SELECT * FROM spp";
+        $query = "SELECT * FROM spp ORDER BY tahun";
 
         $spp = $database->ambil_data($query);
 
