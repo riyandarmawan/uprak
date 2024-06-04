@@ -39,7 +39,7 @@ class Kelas extends Controller
 
             if (empty($kodeKelas) || empty($tingkat)) {
                 Flasher::setFlashMessage('kodeKelas', 'Kode kelas wajib diisi');
-                header('Location: /dashboard/tambah-kelas');
+                header('Location: /kelas/tambah');
                 die;
             }
 
@@ -51,7 +51,7 @@ class Kelas extends Controller
                 Flasher::setFlashAlert('kelas', 'Kelas gagal ditambah', false);
             }
 
-            header('Location: /dashboard/kelas');
+            header('Location: /kelas');
             die;
         }
 
@@ -80,7 +80,7 @@ class Kelas extends Controller
 
             if (empty($kodeKelas) || empty($tingkat)) {
                 Flasher::setFlashMessage('kodeKelas', 'Kode kelas wajib diisi');
-                header('Location: /dashboard/ubah-kelas');
+                header("Location: /kelas/ubah/$id");
                 die;
             }
 
@@ -92,7 +92,7 @@ class Kelas extends Controller
                 Flasher::setFlashAlert('kelas', 'Kelas gagal diubah', false);
             }
 
-            header('Location: /dashboard/kelas');
+            header('Location: /kelas');
             die;
         }
 

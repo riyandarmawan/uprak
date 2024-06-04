@@ -74,7 +74,7 @@ class Spp extends Controller {
             if (empty($tahun) || empty($nominal)) {
                 Flasher::setFlashMessage('tahun', 'Tahun wajib diisi');
                 Flasher::setFlashMessage('nominal', 'Nominal wajib diisi');
-                header('Location: /spp/ubah');
+                header("Location: /spp/ubah/$id");
                 die;
             }
 

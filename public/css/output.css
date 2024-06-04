@@ -798,6 +798,10 @@ select {
   margin-bottom: auto;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -864,6 +868,10 @@ select {
 
 .w-full {
   width: 100%;
+}
+
+.resize-none {
+  resize: none;
 }
 
 .flex-col {

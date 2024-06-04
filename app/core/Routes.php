@@ -4,6 +4,12 @@ return [
     // Dashboard
     '/' => ['Dashboard', 'index'],
 
+    // Siswa
+    '/siswa' => ['Siswa', 'index'],
+    '/siswa/tambah' => ['Siswa', 'tambah'],
+    '/siswa/ubah/{nis}' => ['Siswa', 'ubah'],
+    '/siswa/hapus/{nis}' => ['Siswa', 'hapus'],
+
     // SPP
     '/spp' => ['Spp', 'index'],
     '/spp/tambah' => ['Spp', 'tambah'],

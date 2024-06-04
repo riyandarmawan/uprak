@@ -39,7 +39,7 @@ class Jurusan extends Controller
             if (empty($kodeJurusan) || empty($deskripsi)) {
                 Flasher::setFlashMessage('kodeJurusan', 'Kode jurusan wajib diisi');
                 Flasher::setFlashMessage('deskripsi', 'Deskripsi wajib diisi');
-                header('Location: /dashboard/tambah-jurusan');
+                header('Location: /jurusan/tambah');
                 die;
             }
 
@@ -51,7 +51,7 @@ class Jurusan extends Controller
                 Flasher::setFlashAlert('jurusan', 'Jurusan gagal ditambah', false);
             }
 
-            header('Location: /dashboard/jurusan');
+            header('Location: /jurusan');
             die;
         }
 
@@ -75,7 +75,7 @@ class Jurusan extends Controller
             if (empty($kodeJurusan) || empty($deskripsi)) {
                 Flasher::setFlashMessage('kodeJurusan', 'Kode jurusan wajib diisi');
                 Flasher::setFlashMessage('deskripsi', 'deskripsi wajib diisi');
-                header('Location: /dashboard/ubah-jurusan');
+                header("Location: /jurusan/ubah/$id");
                 die;
             }
 
@@ -87,7 +87,7 @@ class Jurusan extends Controller
                 Flasher::setFlashAlert('jurusan', 'Jurusan gagal diubah', false);
             }
 
-            header('Location: /dashboard/jurusan');
+            header('Location: /jurusan');
             die;
         }
 
@@ -117,7 +117,7 @@ class Jurusan extends Controller
             Flasher::setFlashAlert('jurusan', 'Jurusan gagal dihapus', false);
         }
 
-        header('Location: /dashboard/jurusan');
+        header('Location: /jurusan');
         die;
     }
 }

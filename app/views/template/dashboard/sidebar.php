@@ -16,6 +16,11 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="/siswa">
+            <span>Siswa</span></a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="/spp">
             <span>SPP</span></a>
     </li>
