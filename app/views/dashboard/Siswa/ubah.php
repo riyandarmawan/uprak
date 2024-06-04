@@ -32,8 +32,8 @@
             <div class="mt-2">
                 <label for="jenisKelamin" class="block text-sm font-medium leading-6 text-gray-900">Jenis Kelamin</label>
                 <select id="jenisKelamin" name="jenisKelamin" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 valid">
-                    <option value="l">Laki-laki</option>
-                    <option value="p">Perempuan</option>
+                    <option <?= $data['siswa']['jenis_kelamin'] == "l" ? 'selected' : '' ?> value="l">Laki-laki</option>
+                    <option <?= $data['siswa']['jenis_kelamin'] == "p" ? 'selected' : '' ?> value="p">Perempuan</option>
                 </select>
             </div>
 
@@ -57,7 +57,7 @@
                 <label for="spp" class="block text-sm font-medium leading-6 text-gray-900">SPP</label>
                 <select id="spp" name="spp" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 valid">
                     <?php foreach ($data['spp'] as $spp) : ?>
-                        <option value="<?= $spp['id'] ?>"><?= $spp['tahun'] . '-' . $spp['nominal'] ?></option>
+                        <option <?= $data['siswa']['spp_id'] == $spp['id'] ? 'selected' : '' ?> value="<?= $spp['id'] ?>"><?= $spp['tahun'] . '-' . $spp['nominal'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -66,7 +66,7 @@
                 <label for="kelas" class="block text-sm font-medium leading-6 text-gray-900">Kelas</label>
                 <select id="kelas" name="kelas" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 valid">
                     <?php foreach ($data['kelas'] as $kelas) : ?>
-                        <option value="<?= $kelas['id'] ?>"><?= $kelas['kode_kelas'] ?></option>
+                        <option <?= $data['siswa']['kelas_id'] == $kelas['id'] ? 'selected' : '' ?> value="<?= $kelas['id'] ?>"><?= $kelas['kode_kelas'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

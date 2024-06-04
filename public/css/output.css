@@ -905,10 +905,6 @@ select {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-md {
   border-radius: 0.375rem;
 }
