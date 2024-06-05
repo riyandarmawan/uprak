@@ -28,6 +28,9 @@ return [
     '/kelas/ubah/{id}' => ['Kelas', 'ubah'],
     '/kelas/hapus/{id}' => ['Kelas', 'hapus'],
 
+    // pembayaran
+    '/laporan-pembayaran' => ['Pembayaran', 'index'],
+
     // auth
     '/auth/login' => ['Auth',  'login'],
     '/auth/logout' => ['Auth', 'logout'],

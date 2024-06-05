@@ -35,6 +35,11 @@
             <span>Kelas</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="/laporan-pembayaran">
+            <span>Laporan Pembayaran</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
