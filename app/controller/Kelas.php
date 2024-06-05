@@ -127,7 +127,7 @@ class Kelas extends Controller
             Flasher::setFlashAlert('kelas', 'Kelas gagal dihapus', false);
         }
 
-        header('Location: /dashboard/kelas');
+        header('Location: /kelas');
         die;
     }
 }

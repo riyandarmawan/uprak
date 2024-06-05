@@ -81,7 +81,7 @@ class Auth extends Controller
                 Flasher::setFlashMessage('passwordLama', 'Password lama wajib diisi');
                 Flasher::setFlashMessage('passwordBaru', 'Password baru wajib diisi');
                 Flasher::setFlashMessage('konfirmasiPasswordBaru', 'Konfirmasi password lama wajib diisi');
-                header('Location: /dashboard/ubah-password');
+                header('Location: /auth/ubah-password');
                 die;
             }
 
@@ -91,14 +91,14 @@ class Auth extends Controller
 
             if ($admin['password'] != $passwordLama) {
                 Flasher::setFlashMessage('passwordLama', 'Password lama tidak sesuai');
-                header('Location: /dashboard/ubah-password');
+                header('Location: /auth/ubah-password');
                 die;
             }
 
             if ($passwordBaru != $konfirmasiPasswordBaru) {
                 Flasher::setFlashMessage('passwordBaru', 'Password baru tidak sesuai dengan konfirmasi password');
                 Flasher::setFlashMessage('konfirmasiPasswordBaru', 'Konfirmasi password tidak sesuai dengan password baru');
-                header('Location: /dashboard/ubah-password');
+                header('Location: /auth/ubah-password');
                 die;
             }
 
